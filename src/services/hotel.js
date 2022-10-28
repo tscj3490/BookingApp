@@ -69,6 +69,23 @@ module.exports = {
         cb(err, null)
     })
   },
+  
+  getPolicy(token, data, cb) {
+    var requestData = {
+      "Request": {
+        data,
+        token
+      },
+      "Flags": {},
+      "info": UtilService.getInfo('hotel')
+    }
+    baseApi.basicApi('/v1/hotel/policy', 'POST', requestData, (err, res) => {
+      if(!err) {
+        cb(null, res)
+      } else
+        cb(err, null)
+    })
+  },
 
   searchMap(token, cb) {
     var requestData = {
@@ -99,22 +116,4 @@ module.exports = {
         cb(err, [])
     })
   },
-
-  getPolicy(token, data, cb) {
-    var requestData = {
-      "Request": {
-        data,
-        token
-      },
-      "Flags": {},
-      "info": UtilService.getInfo('hotel')
-    }
-    baseApi.basicApi('/v1/hotel/policy', 'POST', requestData, (err, res) => {
-      if(!err) {
-        cb(null, res)
-      } else
-        cb(err, null)
-    })
-  },
-
 };

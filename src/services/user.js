@@ -29,6 +29,16 @@ module.exports = {
       cb(err, res)
     })
   },
+
+  updateDevice(cb) {
+    var deviceInfo = {}
+    baseApi.basicApi('/v1/user/device/update', 'POST', {
+      "request": deviceInfo
+    }, (err, res) => {
+      cb(err, res)
+    })
+  },
+  
   setPassword(password, cb) {
     var userData = Global.currentUser
     userData.password = password
@@ -42,30 +52,7 @@ module.exports = {
       cb(err, res)
     })
   },
-  updateDevice(cb) {
-    //after reject expo, need to get device info from react-native-deviceinfo
-    // "request": {
-    //   "DeviceId": DeviceInfo.getDeviceId(),
-    //   "DeviceName": DeviceInfo.getDeviceName(),
-    //   "DeviceModel": DeviceInfo.getModel(),
-    //   "DeviceType": DeviceInfo.getBrand(),
-    //   "OsName": DeviceInfo.getSystemName(),
-    //   "OsVersion": DeviceInfo.getSystemVersion(),
-    //   "AppVersion": DeviceInfo.getVersion(),
-    //   "PushIdInfoList": [
-    //       {
-    //           "PushType": "fcm",
-    //           "PushId": "fuXqiVu_xOI:APA91bGniSIADRwDyBkCPMgdkIQyCcihNziANQvez_WVeDoagIhHd0cZs4nGbAdyOmlRFnMaAJjRn26Y7g4n4OrX-jUjktDoyWYia6Z_s4bSfM3Wm3E2AnB8a7zOvOU-fqI2RC0EXxpn"
-    //       }
-    //   ]
-    // }
-    var deviceInfo = {}
-    baseApi.basicApi('/v1/user/device/update', 'POST', {
-      "request": deviceInfo
-    }, (err, res) => {
-      cb(err, res)
-    })
-  },
+  
   getLedgerBalance(min, max, page, pageSize, cb) {
     baseApi.basicApi('/v1/ledgerbalance', 'POST', {
       "Request": {
@@ -76,11 +63,6 @@ module.exports = {
             "MinMaxList": [],
             "Name": "daterange"
           },
-          // {
-          //   "MinMaxList": [],
-          //   "Name": "transactiontype",
-          //   "DefaultValue": "0"
-          // }
         ],
         "PageInfo": {
           "CurrentPage": page||1,

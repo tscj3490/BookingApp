@@ -7,14 +7,6 @@ import {
 
 import {
     BallIndicator,
-    BarIndicator,
-    DotIndicator,
-    MaterialIndicator,
-    PacmanIndicator,
-    PulseIndicator,
-    SkypeIndicator,
-    UIActivityIndicator,
-    WaveIndicator,
 } from 'react-native-indicators';
 
 import Color from '@common/color'

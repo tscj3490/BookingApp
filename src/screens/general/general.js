@@ -17,7 +17,6 @@ class General extends PureComponent{
 
     componentWillReceiveProps(nextProps){
         if ( nextProps.hasInternetConnection ){
-            // Actions.pop()    
         }
     }
     componentDidMount() {
@@ -29,7 +28,6 @@ class General extends PureComponent{
     }
 
     handleBackButton() {
-        // ToastAndroid.show('Back button is pressed', ToastAndroid.SHORT);
         return true;
     }
 
