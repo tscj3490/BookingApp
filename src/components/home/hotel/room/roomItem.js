@@ -74,7 +74,6 @@ export default class RoomItem extends React.PureComponent {
         var uniqueKey = `${rawData.groupId}-${option.code}`
         let isChecked = (checkedIndexes.indexOf(uniqueKey) != -1)
 
-        //console.log('renderOption', checkedIndexes, uniqueKey, isChecked)
         let optionItem = {
             title, optionDesc, price, occupancy, facilities, isRefundable, info, isChecked
         }

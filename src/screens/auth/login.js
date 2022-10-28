@@ -84,15 +84,13 @@ class LoginC extends PureComponent {
         if (!password) {
             return alert(T1('message10'))
         }
-        //console.log('authType, email, password, phone', authType, email, password, phone)
+        
         if (authType == 'email') {
             this.props.actions.login(email, password)
                 .then(({ error }) => {
                     if (!error) {
                         if (this.needBack) {
-                            // Actions.jump('Home')
                         } else {
-                            // Actions.replace('Profile')
                         }
                     }
                 })

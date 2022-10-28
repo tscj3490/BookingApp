@@ -66,7 +66,6 @@ class ForgotPasswordC extends PureComponent {
                     phoneNumberCountryCode: `+${code}`
                 }, authType).then(({ error }) => {
                     if (error) {
-                        //console.log(error)
                         alert("Mobile Number isn't registered with our system.")
                     } else {
                         Alert.alert('', T1('message7'), [

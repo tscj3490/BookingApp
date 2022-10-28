@@ -49,7 +49,6 @@ class RoomDetailC extends PureComponent {
         }]
         this.props.actions.addToCart(Global.searchToken['hotel'], data).then(({ error, result }) => {
             if (error) {
-                console.log(error)
                 return
             }
 

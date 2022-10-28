@@ -198,7 +198,6 @@ class RoomListC extends PureComponent {
         }]
         this.props.actions.addToCart(Global.searchToken['hotel'], data).then(({ error, result }) => {
             if (error) {
-                console.log(error)
                 return
             }
 
@@ -214,7 +213,6 @@ class RoomListC extends PureComponent {
         }
         this.props.actions.getPolicy(Global.searchToken['hotel'], data).then(({ error, result }) => {
             if (error) {
-                console.log(error)
                 return
             }
 
@@ -232,13 +230,7 @@ class RoomListC extends PureComponent {
         let { hotel } = this.props.hotel
         hotel = hotel || {}
         let rooms = hotel.items ? hotel.items : []
-        //var paxSize = rooms.length> 0 ? rooms[0].item.length : 0
-
-        //check if one more item is selected
-        // if (Object.keys(checkedIndexes).length == 0) {
-        //     return alert("Please select one more rooms.")
-        // }
-
+       
         var data = Object.keys(checkedIndexes).map((key) => {
             var item = checkedIndexes[key]
             return {

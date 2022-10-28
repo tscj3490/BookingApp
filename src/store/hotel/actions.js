@@ -77,13 +77,10 @@ export function searchPage(requestData){
 }
 
 export function searchPageNext(requestData){
-  // console.log('searchHotelPage - requestData', requestData)
   return dispatch=>{
-    //dispatch({type:types.SEARCH_HOTEL_PAGE, status:types.LOADING})
 
     return new Promise((resolve, reject)=>{
       api.hotel.searchPage(requestData, (error, result)=>{
-        // console.log('searchHotelPage - result', error, result)
         dispatch({type:types.SEARCH_HOTEL_PAGE_NEXT, status:error?types.FAILED:types.SUCCESS, error, result})
         resolve({error, result})
       })
@@ -97,7 +94,6 @@ export function getHotelDetail(id, token){
 
     return new Promise((resolve, reject)=>{
       api.hotel.getDetail(id, token, (error, result)=>{
-        console.log('hotel detail', JSON.stringify(result))
         dispatch({type:types.GET_HOTEL_DETAIL, status:error?types.FAILED:types.SUCCESS, error, result})
         resolve({error, result})
       })

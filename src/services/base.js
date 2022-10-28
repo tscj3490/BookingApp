@@ -10,13 +10,12 @@ module.exports = {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          // "Accept-Encoding": "gzip"
         }
       };
       if (method == "POST" || method == "PUT") {
         request["body"] = JSON.stringify(json_data);
       }
-      //console.log(request)
+     
       let response = await fetch(config.SERVICE_API_URL + sub_url, request);
       if (response.status == 200) {
         let responseJson = await response.json();
@@ -47,14 +46,13 @@ module.exports = {
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
-          // "Accept-Encoding": "gzip",
           "Authorization": "basic " + Global.basicAuthToken
         }
       };
       if (method == "POST" || method == "PUT") {
         request["body"] = JSON.stringify(json_data);
       }
-      //console.log(request)
+     
       let response = await fetch(config.SERVICE_API_URL + sub_url, request);
       if (response.status == 200) {
         let responseJson = await response.json();

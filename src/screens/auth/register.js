@@ -159,29 +159,23 @@ class RegisterC extends PureComponent {
             requestData.smsOtp = otpNumber
         }
 
-        console.log('requestData', requestData)
         this.props.actions.register(requestData).then(({ error, result }) => {
             if (error) {
                 alert(error.message)
                 return
             }
 
-            console.log('register result', result)
             Actions.pop()
-            // this.props.actions.login(email, password)
-            //     .then(({ error }) => {
-            //         console.log('login', error, email, password)
-            //         if (!error) {
-            //             console.log('login - here')
-            //             Actions.replace('Profile')
-            //         }
-            //     })
             this.props.commonAction.showToast(T1('message15'))
         })
     }
 
+    updateInfo(index, value){
+        this.state.formData[index].value = value
+        this.setState({formData:[...this.state.formData]})
+    }
+
     changeCountry(value) {
-        console.log('value', value)
         this.setState({
             cca2: value.cca2,
             callingCode: value.callingCode,
@@ -195,12 +189,6 @@ class RegisterC extends PureComponent {
 
     privacyPolicy() {
         Actions.Privacy({ title: 'Privacy and Policy', html: this.privacyPolicyText })
-    }
-
-    updateInfo(index, value){
-        this.state.formData[index].value = value
-        this.setState({formData:[...this.state.formData]})
-        
     }
 
     render() {
